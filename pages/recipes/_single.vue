@@ -20,7 +20,7 @@
               Related Recipes
             </h6>
             <!-- Related Recipes -->
-            <recipes-grid :number="3" :category="category" :exclude="slug" />
+            <recipes-grid :number="3" :exclude="slug" />
           </div>
           <disqus-comments :identifier="$route.params.singleRecipe" />
         </div>
