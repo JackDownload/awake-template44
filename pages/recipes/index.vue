@@ -1,18 +1,11 @@
 <template>
-  <div id="home-page" class="page-wrapper home-page">
+  <div id="recipes-page" class="page-wrapper Recipes-page">
+    <site-hero title="Recipes" image="https://picsum.photos/1800/1801" />
     <main-section theme="one-column">
-      <template v-slot:default>
-        <!-- All Recipess -->
-        <recipes-grid />
-      </template>
-      <template v-slot:sidebar>
-        Nothing here
-      </template>
+      <recipes-grid />
     </main-section>
-    <news-letter-form-modal />
   </div>
 </template>
-
 <script>
 export default {
   head() {

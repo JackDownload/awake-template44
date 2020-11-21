@@ -20,7 +20,7 @@
 
 <script>
 import isString from 'lodash.isstring'
-import PresentationalGrid from './PresentationalGrid'
+import PresentationalGrid from './PresentationalrecipeGrid'
 
 export default {
   name: 'ResourceGrid',
@@ -31,12 +31,7 @@ export default {
     theme: { type: String, default: 'blocks' },
     perRow: { type: Number, default: 3 },
     number: { type: Number, default: 0 },
-    order: { type: String, default: 'DESC' },
-    category: {
-      type: Array,
-      default() {
-        return []
-      }
+    order: { type: String, default: 'DESC' }
     },
     exclude: { type: String, default: '' }
   },
@@ -46,7 +41,7 @@ export default {
       firstPageLoaded: false,
       resources: [],
       page: 0,
-      allPostsLoaded: false,
+      allRecipesLoaded: false,
       loading: false
     }
   },
@@ -87,7 +82,7 @@ export default {
       this.loading = true
       let resources = []
       if (this.number) {
-        resources = await this.getPostsByNumber()
+        resources = await this.getRecipesByNumber()
         this.allLoaded = true
       } else {
         try {
@@ -109,7 +104,7 @@ export default {
       }
       this.loading = false
     },
-    async getPostsByNumber() {
+    async getRecipesByNumber() {
       try {
         const resources = await this.resourceController.getByNumber(
           this.number,
