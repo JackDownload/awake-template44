@@ -1,40 +1,46 @@
 <template>
-  <div id="recipes-page" class="page-wrapper recipes-page">
+  <div id="post-page" class="page-wrapper post-page">
     <site-hero :title="title" :subtitle="subtitle" :image="featureImage">
+      <span
+        v-if="author && $siteConfig.posts.displayAuthor"
+        class="author-wrapper"
+      >
+        <strong>Author:</strong> {{ author }}
+      </span>
       <span v-if="date" class="date-wrapper">
         <strong>Published on:</strong> {{ date }}
       </span>
     </site-hero>
     <main-section :one-column-constrained="true">
       <template v-slot:default>
-        <div class="recipes-wrapper">
+        <div class="post-wrapper">
           <markdown :markdown="$store.state.content" />
-          <div class="other-recipess">
+          <div class="other-posts">
             <h6 class="subtitle is-size-4">
-              Related Recipess
+              Related Posts
             </h6>
-            <!-- Related Recipess -->
-            <recipess-grid :number="3" :exclude="slug" />
+            <!-- Related Posts -->
+            <posts-grid :number="3" :category="category" :exclude="slug" />
           </div>
-          <disqus-comments :identifier="$route.params.singleRecipes" />
+          <disqus-comments :identifier="$route.params.singlePost" />
         </div>
       </template>
       <template v-slot:sidebar>
-        <recipes-sidebar />
+        <post-sidebar />
       </template>
     </main-section>
   </div>
 </template>
 <script>
 import { mapState } from 'vuex'
-import { setPageData, getFormattedDate } from '../../helper'
+import { setPageData, getFormattedDate } from '../helper'
 // import 'highlight.js/styles/github.css'
 import Markdown from '~/components/Markdown'
-import RecipesSidebar from '../../components/RecipeSidebar'
+import PostSidebar from '~/components/PostSidebar'
 export default {
   components: {
     Markdown,
-    RecipesSidebar
+    PostSidebar
   },
   computed: {
     ...mapState([
@@ -42,6 +48,8 @@ export default {
       'subtitle',
       'featureImage',
       'underSubtitle',
+      'author',
+      'category',
       'slug'
     ]),
     date() {
@@ -52,12 +60,12 @@ export default {
     }
   },
   fetch({ store, params }) {
-    setPageData(store, { resource: 'recipes', slug: params.singleRecipes })
+    setPageData(store, { resource: 'post', slug: params.singlePost })
   }
 }
 </script>
 <style scoped lang="scss">
-.edit-recipes {
+.edit-post {
   margin-bottom: 20px;
 }
 </style>
