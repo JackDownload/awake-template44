@@ -17,6 +17,13 @@
       <template v-slot:sidebar>
         Nothing here
       </template>
+            <template v-slot:default>
+        <!-- All Posts -->
+        <recipe-grid />
+      </template>
+      <template v-slot:sidebar>
+        Nothing here
+      </template>
     </main-section>
     <news-letter-form-modal />
   </div>
