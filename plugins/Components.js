@@ -12,7 +12,6 @@ import SiteHero from '../components/SiteHero'
 import SiteLogo from '../components/SiteLogo'
 import SiteNav from '../components/SiteNav'
 import ResourceGrid from '~/components/grids/ResourceGrid'
-import ResourcerecipeGrid from '~/components/grids/ResourcerecipeGrid'
 
 Vue.component(CategoriesGrid.name, CategoriesGrid)
 Vue.component(DisqusComments.name, DisqusComments)
@@ -27,4 +26,3 @@ Vue.component(SiteHero.name, SiteHero)
 Vue.component(SiteLogo.name, SiteLogo)
 Vue.component(SiteNav.name, SiteNav)
 Vue.component(ResourceGrid.name, ResourceGrid)
-Vue.component(ResourcerecipeGrid.name, ResourcerecipeGrid)
