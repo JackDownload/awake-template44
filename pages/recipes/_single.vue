@@ -20,7 +20,7 @@
               Related Recipes
             </h6>
             <!-- Related Recipes -->
-            <recipes-grid :number="3" :exclude="slug" />
+            <recipes-grid :number="3" :category="category" :exclude="slug" />
           </div>
           <disqus-comments :identifier="$route.params.singleRecipe" />
         </div>
@@ -33,7 +33,7 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import { setPageData, getFormattedDate } from '../../cms/netlify/helper'
+import { setPageData, getFormattedDate } from '../helper'
 // import 'highlight.js/styles/github.css'
 import Markdown from '~/components/Markdown'
 import RecipeSidebar from '~/components/RecipeSidebar'
