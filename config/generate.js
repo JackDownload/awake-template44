@@ -1,5 +1,6 @@
 export const routeMap = {
   '': 'posts/*.md',
+  '': 'recipes/*.md',
   '/categories': 'categories/*.md'
 }
 
