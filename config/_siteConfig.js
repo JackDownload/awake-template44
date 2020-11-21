@@ -31,8 +31,8 @@ export default {
       link: '/categories'
     },
     {
-      name: 'Recipes',
-      link: '/recipes'
+      name: 'Posts',
+      link: '/posts'
     },
     {
       name: 'Github Repo',

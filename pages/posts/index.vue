@@ -1,8 +1,8 @@
 <template>
-  <div id="recipes-page" class="page-wrapper Recipes-page">
-    <site-hero title="Recipes" image="https://picsum.photos/1800/1801" />
+  <div id="posts-page" class="page-wrapper Posts-page">
+    <site-hero title="Posts" image="https://picsum.photos/1800/1801" />
     <main-section theme="one-column">
-      <recipes-grid />
+      <posts-grid />
     </main-section>
   </div>
 </template>
@@ -10,7 +10,7 @@
 export default {
   head() {
     return {
-      title: `Recipes | ${this.$siteConfig.siteName}`
+      title: `Posts | ${this.$siteConfig.siteName}`
     }
   }
 }
