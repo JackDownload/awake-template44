@@ -31,6 +31,10 @@ export default {
       link: '/categories'
     },
     {
+      name: 'Recipes',
+      link: '/recipes'
+    },
+    {
       name: 'Github Repo',
       link: 'https://github.com/danielkellyio/awake-template',
       target: '_blank'
