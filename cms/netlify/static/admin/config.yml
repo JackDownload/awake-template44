@@ -24,7 +24,7 @@ collections:
       - {label: 'Gallery', name: 'gallery', widget: 'list', required: false, summary: '{{fields.image}}', field: { label: 'Image', name: 'image', widget: 'image' }} 
    
   - name: "recipes" # Used in routes, e.g., /admin/collections/blog
-  label: "Recipes" # Used in the UI
+    label: "Recipes" # Used in the UI
     preview_path: "{{slug}}"
     folder: "content/posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
