@@ -7,7 +7,7 @@
     <template v-slot:default="{ item }">
       <recipe-card
         :title="item.title"
-        :link="item.slug ? `/${item.slug}` : ''"
+        :link="item.slug ? `/recipes/${item.slug}` : ''"
         :image="item.featureImage"
         :author="item.author"
         :date="item.date"
