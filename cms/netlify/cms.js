@@ -1,5 +1,5 @@
 import Post from './post'
-import Post from './recipe'
+import Recipe from './recipe'
 import Category from './category'
 import LifeCycleHooks from './hooks/lifeCycle'
 class CMS {
