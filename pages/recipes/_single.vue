@@ -1,8 +1,8 @@
 <template>
-  <div id="recipe-page" class="page-wrapper recipe-page">
+  <div id="recipes-page" class="page-wrapper recipes-page">
     <site-hero :title="title" :subtitle="subtitle" :image="featureImage">
       <span
-        v-if="author && $siteConfig.recipes.displayAuthor"
+        v-if="author && $siteConfig.recipess.displayAuthor"
         class="author-wrapper"
       >
         <strong>Author:</strong> {{ author }}
@@ -13,34 +13,34 @@
     </site-hero>
     <main-section :one-column-constrained="true">
       <template v-slot:default>
-        <div class="recipe-wrapper">
+        <div class="recipes-wrapper">
           <markdown :markdown="$store.state.content" />
-          <div class="other-recipes">
+          <div class="other-recipess">
             <h6 class="subtitle is-size-4">
-              Related Recipes
+              Related Recipess
             </h6>
-            <!-- Related Recipes -->
-            <recipes-grid :number="3" :exclude="slug" />
+            <!-- Related Recipess -->
+            <recipess-grid :number="3" :category="category" :exclude="slug" />
           </div>
-          <disqus-comments :identifier="$route.params.singleRecipe" />
+          <disqus-comments :identifier="$route.params.singleRecipes" />
         </div>
       </template>
       <template v-slot:sidebar>
-        <recipe-sidebar />
+        <recipes-sidebar />
       </template>
     </main-section>
   </div>
 </template>
 <script>
 import { mapState } from 'vuex'
-import { setPageData, getFormattedDate } from '../../helper'
+import { setPageData, getFormattedDate } from '../..helper/helper'
 // import 'highlight.js/styles/github.css'
 import Markdown from '~/components/Markdown'
-import RecipeSidebar from '~/components/RecipeSidebar'
+import RecipesSidebar from '~/components/RecipesSidebar'
 export default {
   components: {
     Markdown,
-    RecipeSidebar
+    RecipesSidebar
   },
   computed: {
     ...mapState([
@@ -59,12 +59,12 @@ export default {
     }
   },
   fetch({ store, params }) {
-    setPageData(store, { resource: 'recipe', slug: params.singleRecipe })
+    setPageData(store, { resource: 'recipes', slug: params.singleRecipes })
   }
 }
 </script>
 <style scoped lang="scss">
-.edit-recipe {
+.edit-recipes {
   margin-bottom: 20px;
 }
 </style>
