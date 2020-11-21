@@ -6,7 +6,7 @@ const generateRecipeApi = () => {
   const apiDir = `${rootDir}/static/api`
   const allFile = `${apiDir}/recipes.json`
   const metaFile = `${apiDir}/recipes-meta.json`
-  const pages = siteConfig.posts.perPage
+  const pages = siteConfig.recipe.perPage
   const doneMessage = `{totalNumber} recipes generated in posts API`
 
   createAll(contentDir, allFile, apiDir)
