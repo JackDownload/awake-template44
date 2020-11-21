@@ -53,10 +53,10 @@ export default {
       'slug'
     ]),
     date() {
-      return getFormattedDate (posts/$/{this.$store.state.date})
+      return getFormattedDate(this.$store.state.date)
     },
     url() {
-      return `${process.env.URL}/${this.$route.fullPath}`
+      return `${process.env.URL}/${this.$route.fullPath}/posts`
     }
   },
   fetch({ store, params }) {
