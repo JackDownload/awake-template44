@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import GenericCard from './GenericCard'
+import GenericCard from './GenrecipeCard'
 import { getFormattedDate } from '~/helper'
 export default {
   components: { GenericCard },
