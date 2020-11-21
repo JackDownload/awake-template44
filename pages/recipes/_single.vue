@@ -1,49 +1,70 @@
 <template>
   <div id="recipe-page" class="page-wrapper recipe-page">
-    <site-hero
-      :title="$store.state.name"
-      :subtitle="$store.state.content"
-      :image="$store.state.image"
-    />
-    <main-section theme="sidebar-right">
+    <site-hero :title="title" :subtitle="subtitle" :image="featureImage">
+      <span
+        v-if="author && $siteConfig.recipes.displayAuthor"
+        class="author-wrapper"
+      >
+        <strong>Author:</strong> {{ author }}
+      </span>
+      <span v-if="date" class="date-wrapper">
+        <strong>Published on:</strong> {{ date }}
+      </span>
+    </site-hero>
+    <main-section :one-column-constrained="true">
       <template v-slot:default>
-        <!-- Posts in Recipe -->
-        <posts-grid :recipe="[$store.state.name]" :per-row="2" />
+        <div class="recipe-wrapper">
+          <markdown :markdown="$store.state.content" />
+          <div class="other-recipes">
+            <h6 class="subtitle is-size-4">
+              Related Recipes
+            </h6>
+            <!-- Related Recipes -->
+            <recipes-grid :number="3" :exclude="slug" />
+          </div>
+          <disqus-comments :identifier="$route.params.singleRecipe" />
+        </div>
       </template>
       <template v-slot:sidebar>
-        <h3 class="subtitle">
-          All Categories
-        </h3>
-        <div class="panel">
-          <nuxt-link
-            v-for="cat in allCats"
-            :key="cat.slug"
-            :to="`/recipes/${cat.slug}`"
-            :class="{
-              'panel-block': true,
-              'is-active': cat.slug === $route.params.single
-            }"
-          >
-            {{ cat.name }}
-          </nuxt-link>
-        </div>
+        <recipe-sidebar />
       </template>
     </main-section>
   </div>
 </template>
 <script>
-import { setPageData } from '../../helper'
+import { mapState } from 'vuex'
+import { setPageData, getFormattedDate } from '../helper'
+// import 'highlight.js/styles/github.css'
+import Markdown from '~/components/Markdown'
+import RecipeSidebar from '~/components/RecipeSidebar'
 export default {
-  data() {
-    return {
-      allCats: []
+  components: {
+    Markdown,
+    RecipeSidebar
+  },
+  computed: {
+    ...mapState([
+      'title',
+      'subtitle',
+      'featureImage',
+      'underSubtitle',
+      'author',
+      'slug'
+    ]),
+    date() {
+      return getFormattedDate(this.$store.state.date)
+    },
+    url() {
+      return `${process.env.URL}/${this.$route.fullPath}`
     }
   },
   fetch({ store, params }) {
-    setPageData(store, { resource: 'recipe', slug: params.single })
-  },
-  async created() {
-    this.allCats = await this.$cms.recipe.getAll()
+    setPageData(store, { resource: 'recipe', slug: params.singleRecipe })
   }
 }
 </script>
+<style scoped lang="scss">
+.edit-recipe {
+  margin-bottom: 20px;
+}
+</style>

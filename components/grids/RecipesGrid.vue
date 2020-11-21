@@ -25,12 +25,6 @@ export default {
     perRow: { type: Number, default: 3 },
     number: { type: Number, default: 0 },
     order: { type: String, default: 'DESC' },
-    category: {
-      type: Array,
-      default() {
-        return []
-      }
-    },
     exclude: { type: String, default: '' }
   }
 }
