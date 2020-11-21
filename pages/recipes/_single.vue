@@ -36,7 +36,7 @@ import { mapState } from 'vuex'
 import { setPageData, getFormattedDate } from '../../helper'
 // import 'highlight.js/styles/github.css'
 import Markdown from '~/components/Markdown'
-import RecipesSidebar from '~/components/RecipesSidebar'
+import RecipesSidebar from '../../components/RecipeSidebar'
 export default {
   components: {
     Markdown,
