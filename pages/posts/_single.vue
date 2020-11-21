@@ -56,7 +56,7 @@ export default {
       return getFormattedDate(this.$store.state.date)
     },
     url() {
-      return `${process.env.URL}/posts/${this.$route.fullPath}`
+      return `${process.env.URL}/${this.$route.fullPath}`
     }
   },
   fetch({ store, params }) {
