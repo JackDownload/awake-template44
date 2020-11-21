@@ -33,7 +33,7 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import { setPageData, getFormattedDate } from '../helper'
+import { setPageData, getFormattedDate } from '../../cms/netlify/helper'
 // import 'highlight.js/styles/github.css'
 import Markdown from '~/components/Markdown'
 import RecipeSidebar from '~/components/RecipeSidebar'
