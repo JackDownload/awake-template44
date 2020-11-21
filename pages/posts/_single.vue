@@ -33,10 +33,10 @@
 </template>
 <script>
 import { mapState } from 'vuex'
-import { setPageData, getFormattedDate } from '../helper'
+import { setPageData, getFormattedDate } from '../../helper'
 // import 'highlight.js/styles/github.css'
-import Markdown from '~/components/Markdown'
-import PostSidebar from '~/components/PostSidebar'
+import Markdown from '../../components/Markdown'
+import PostSidebar from '../../components/PostSidebar'
 export default {
   components: {
     Markdown,
@@ -56,7 +56,7 @@ export default {
       return getFormattedDate(this.$store.state.date)
     },
     url() {
-      return `${process.env.URL}/${this.$route.fullPath}/posts`
+      return `${process.env.URL}/${this.$route.fullPath}/posts/`
     }
   },
   fetch({ store, params }) {
