@@ -18,15 +18,6 @@
         Nothing here
       </template>
     </main-section>
-        <main-section theme="one-column">
-      <template v-slot:default>
-        <!-- All Posts -->
-        <recipes-grid />
-      </template>
-      <template v-slot:sidebar>
-        Nothing here
-      </template>
-    </main-section>
     <news-letter-form-modal />
   </div>
 </template>
